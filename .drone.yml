@@ -32,8 +32,7 @@ pipeline:
     from: sonarr-dev
     repo: spritsail/sonarr
     tags:
-      - 'latest'
-      - '%labelauto: io.spritsail.version.sonarr'
+      - 'alpine'
 
   notify:
     image: spritsail/notify
