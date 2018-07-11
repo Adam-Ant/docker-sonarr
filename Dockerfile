@@ -17,9 +17,12 @@ COPY *.sh /usr/local/bin/
 
 RUN apk add --no-cache sqlite-libs mediainfo xmlstarlet \
  && wget -O- "http://download.sonarr.tv/v2/master/mono/NzbDrone.master.${SONARR_VER}.mono.tar.gz" \
-        | tar xz -C /sonarr --strip-components=1 \
- && find /sonarr -type f -exec chmod 644 {} + \
- && find /sonarr -type d -o -name '*.exe' -exec chmod 755 {} + \
+        | tar xz --strip-components=1 \
+ && find -type f -exec chmod 644 {} + \
+ && find -type d -o -name '*.exe' -exec chmod 755 {} + \
+ && find -name '*.mdb' -delete \
+# Where we're going, we don't need ~roads~ updates!
+ && rm -rf NzbDrone.Update \
  && chmod +x /usr/local/bin/*.sh
 
 VOLUME ["/config", "/media"]
