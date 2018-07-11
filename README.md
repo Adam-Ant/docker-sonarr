@@ -1,17 +1,18 @@
 [hub]: https://hub.docker.com/r/spritsail/sonarr
-[git]: https://github.com/spritsail/sonarr
+[git]: https://github.com/spritsail/sonarr/tree/alpine
 [drone]: https://drone.spritsail.io/spritsail/sonarr
-[mbdg]: https://microbadger.com/images/spritsail/sonarr
+[mbdg]: https://microbadger.com/images/spritsail/sonarr:alpine
 
-# [spritsail/Sonarr][hub]
+# [Spritsail/Sonarr][hub]
 
-[![](https://images.microbadger.com/badges/image/spritsail/sonarr.svg)][mbdg]
-[![Latest Version](https://images.microbadger.com/badges/version/spritsail/sonarr.svg)][hub]
-[![Git Commit](https://images.microbadger.com/badges/commit/spritsail/sonarr.svg)][git]
+[![Layers](https://images.microbadger.com/badges/image/spritsail/sonarr:alpine.svg)][mbdg]
+[![Latest Version](https://images.microbadger.com/badges/version/spritsail/sonarr:alpine.svg)][hub]
+[![Git Commit](https://images.microbadger.com/badges/commit/spritsail/sonarr:alpine.svg)][git]
 [![Docker Pulls](https://img.shields.io/docker/pulls/spritsail/sonarr.svg)][hub]
 [![Docker Stars](https://img.shields.io/docker/stars/spritsail/sonarr.svg)][hub]
-[![Build Status](https://drone.spritsail.io/api/badges/spritsail/sonarr/status.svg)][drone]
+[![Build Status](https://drone.spritsail.io/api/badges/spritsail/sonarr/status.svg?branch=alpine)][drone]
 
+**This is a test build and is probably not stable, try at your own risk**
 
 [Sonarr](https://github.com/Sonarr/Sonarr) running in Debian Linux. This container provides some simple initial configuration scripts to set some runtime variables (see [#Configuration](#configuration) for details)
 
@@ -24,7 +25,7 @@ docker run -dt
     --restart=always
     -v $PWD/config:/config
     -p 8989:8989
-    spritsail/sonarr
+    spritsail/sonarr:alpine
 ```
 
 **Note:** _Is is important to use `-t` (pseudo-tty) as without it there are no logs produced._
@@ -39,7 +40,7 @@ docker run -dt
     -e URL_BASE=/sonarr
     -e ANALYTICS=false
     -e ...
-    spritsail/sonarr
+    spritsail/sonarr:alpine
 ```
 
 ### Volumes
