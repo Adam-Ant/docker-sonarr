@@ -15,7 +15,7 @@ WORKDIR /sonarr
 
 COPY *.sh /usr/local/bin/
 
-RUN apk add --no-cache sqlite-libs mediainfo xmlstarlet \
+RUN apk add --no-cache sqlite-libs libmediainfo-patched xmlstarlet \
  && wget -O- "http://download.sonarr.tv/v2/master/mono/NzbDrone.master.${SONARR_VER}.mono.tar.gz" \
         | tar xz --strip-components=1 \
  && find -type f -exec chmod 644 {} + \
