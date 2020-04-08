@@ -35,33 +35,18 @@ steps:
     tags:
     - beta
     - "%label io.spritsail.version.sonarr | %prefix beta | %auto"
-  environment:
-    DOCKER_PASSWORD:
-      from_secret: docker_password
-    DOCKER_USERNAME:
+    username:
       from_secret: docker_username
+    password:
+      from_secret: docker_password
   when:
     branch:
     - beta
     event:
     - push
-    - tag
-
-- name: notify
-  pull: always
-  image: spritsail/notify
-  environment:
-    NOTIFY_TOKEN:
-      from_secret: notify_token
-    WEBHOOK_URL:
-      from_secret: webhook_url
-  when:
-    status:
-    - success
-    - failure
 
 ---
 kind: signature
-hmac: 894047dab563ad98faf63eae7afa4c6116e6f894a5dc10389a6bd63576c88006
+hmac: 25e3095244e47296eee1a7d7f3149c4600c13d606c17220b7d785c36725c6a5c
 
 ...
