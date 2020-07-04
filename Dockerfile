@@ -1,6 +1,7 @@
 FROM spritsail/mono:4.5
 
-ARG SONARR_VER=3.0.3.892
+ARG SONARR_VER=3.0.3.896
+
 ARG SONARR_BRANCH=phantom-develop
 
 ENV SUID=906 SGID=900
