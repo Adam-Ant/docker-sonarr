@@ -1,6 +1,6 @@
 FROM spritsail/mono:4.5
 
-ARG SONARR_VER=3.0.3.928
+ARG SONARR_VER=3.0.4.991
 
 ARG SONARR_BRANCH=phantom-develop
 
