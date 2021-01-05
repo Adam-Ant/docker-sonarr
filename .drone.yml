@@ -10,8 +10,6 @@ steps:
 - name: build
   pull: always
   image: spritsail/docker-build
-  settings:
-    repo: sonarr-beta-dev
 
 - name: test
   pull: always
@@ -22,7 +20,6 @@ steps:
     pipe: |
       jq -r ".version" |
       grep -qw "$(label io.spritsail.version.sonarr)"
-    repo: sonarr-beta-dev
     run_args: -t -e SUID=0 -e API_KEY=drone
     verbose: true
 
@@ -30,15 +27,11 @@ steps:
   pull: always
   image: spritsail/docker-publish
   settings:
-    from: sonarr-beta-dev
+    login: {from_secret: docker_login}
     repo: spritsail/sonarr
     tags:
     - beta
     - "%label io.spritsail.version.sonarr | %prefix beta | %auto"
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
   when:
     branch:
     - beta
@@ -47,6 +40,6 @@ steps:
 
 ---
 kind: signature
-hmac: 25e3095244e47296eee1a7d7f3149c4600c13d606c17220b7d785c36725c6a5c
+hmac: 43cce35893e96e582a96d5ae92ae15867991f9cbb6fa2b4101b10ae5106affdd
 
 ...
